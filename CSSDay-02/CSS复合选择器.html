@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>复合选择器</title>
+    <style>
+        /* 后台选择器 */
+        
+        .nav a {
+            color: pink;
+        }
+        
+        .wangsicong ul li {
+            color: red;
+        }
+        /* 子元素选择器 符号>只选亲儿子 最近的元素 */
+        
+        div>strong {
+            color: slateblue;
+        }
+        /* 交集选择器 既是P标签，又是类选择器关系 */
+        
+        p.red {
+            color: pink;
+        }
+        /* 并集选择器 */
+        /* 需求：p和span里的都是红色 */
+        /* 如果某些选择器的样式相同，就可以利用并集选择器，可以让代码更简洁 使用逗号,隔开*/
+        
+        p,
+        span,
+        .red {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- 后代选择器 -->
+    <div><strong>后代选择器</strong></div>
+
+    <div class="nav">
+        <a href="#">内部链接</a>
+        <a href="#">内部链接</a>
+        <a href="#">内部链接</a>
+    </div>
+
+    <a href="#">外部链接</a>
+    <a href="#">外部链接</a>
+    <a href="#">外部链接</a>
+
+    <ul>
+        <li>一条狗</li>
+        <li>一条狗</li>
+        <li>一条狗</li>
+    </ul>
+
+    <div class="wangsicong">
+        <ul>
+            <li>王可可是一条狗</li>
+            <li>王可可是一条狗</li>
+            <li>王可可是一条狗</li>
+        </ul>
+    </div>
+
+
+    <!-- 子元素选择器 -->
+    <div><strong>子元素选择器</strong></div>
+    <div>
+        <strong>儿子</strong>
+        <strong>儿子</strong>
+        <strong>儿子</strong>
+    </div>
+
+    <div>
+        <p>
+            <strong>孙子</strong>
+            <strong>孙子</strong>
+            <strong>孙子</strong>
+        </p>
+    </div>
+
+    <!-- 交集选择器 -->
+    <div><strong>交集选择器</strong></div>
+    <p class="red">红色</p>
+    <p class="red">红色</p>
+    <p class="red">红色</p>
+
+
+    <div class="red">红色</div>
+    <div class="red">红色</div>
+    <div class="red">红色</div>
+
+    <p>蓝色</p>
+    <p>蓝色</p>
+    <p>蓝色</p>
+
+    <div><strong>并集选择器</strong></div>
+    <p>我和你</p>
+    <p>我和你</p>
+    <p>我和你</p>
+    <span>我和你</span>
+    <span>我和你</span>
+    <span>我和你</span>
+    <div class="red">我和你</div>
+    <div>我和你</div>
+    <div>我和你</div>
+    <h1>你和我</h1>
+    <h1>你和我</h1>
+
+</body>
