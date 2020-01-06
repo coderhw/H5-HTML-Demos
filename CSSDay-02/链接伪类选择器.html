@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>链接伪类选择器</title>
+
+    <style>
+        /* 为访问链接的状态 正常状态 */
+        
+        a:link {
+            color: slategray;
+            text-decoration: none;
+        }
+        
+        a:visited {
+            color: orange;
+            text-decoration: none;
+        }
+        /* 鼠标经过链接时候的状态 */
+        
+        a:hover {
+            color: red;
+            text-decoration: none;
+        }
+        /* 鼠标点击的时候 */
+        
+        a:active {
+            color: green;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="https://www.mi.com">小米手机</a>
+    <a href="https://www.mi.com">大米手机</a>
+</body>
