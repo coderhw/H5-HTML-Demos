@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS背景演示</title>
+
+    <style>
+        /*
+            1.必须先指定background-image属性
+            2.position后面是x坐标和y坐标，可以使用方位名词或者精确单位
+            3.如果只指定了一个方位名词，另一个值默认居中 为50%
+            4.如果只指定了一个数值，那该数值用于x坐标，另一个默认是y坐标，默认居中
+            5.如果指定两个值，两个值都是方位名字，则两个值前后顺序无关，比如left top 和 top left效果一致
+            6.如果指定两个值，精确单位和方位名字混合使用，则第一个值是x坐标，第二个值是y坐标
+        */
+        
+        .bg {
+            width: 800px;
+            height: 500px;
+            background-color: pink;
+            background-image: url(../Images/10101.jpeg);
+            /* 默认是平铺 */
+            background-repeat: no-repeat;
+            /*
+            背景位置 background-position: x 坐标，y坐标;
+            */
+            /* background-position: left center; */
+            background-position: 10px center;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="bg">
+        123123123123123123
+    </div>
+
+</body>

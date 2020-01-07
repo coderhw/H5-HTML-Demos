@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>复合选择器</title>
+
+    <style>
+        /* 标签的三种显示模式
+            行内模式 块级模式 行内块模式
+         */
+        
+        span {
+            /* 把行内元素转换为块级元素 */
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+        
+        div {
+            /* 把块级元素转换为行内元素 */
+            display: inline;
+            /* width: 100px;
+            height: 100px; */
+            background-color: plum;
+        }
+        
+        a {
+            display: inline-block;
+            width: 100px;
+            height: 40px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <span>行内元素</span>
+    <span>行内元素</span>
+
+    <div>块级元素</div>
+    <div>块级元素</div>
+    <a href="#">百度</a>
+    <a href="#">新浪</a>
+
+</body>

@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<head>
+
+    <title>复合选择器</title>
+    <style>
+        div {
+            height: 200px;
+            width: 200px;
+            background-color: pink;
+        }
+        /*
+        块级元素特点:
+        1.独占一行，宽度，高度，外边距以及内边距都可以控制
+        2.宽度默认是父级的100%
+        3.是一个容器及盒子，里面可以放行内或者块级元素 
+        注意:
+        1.P里面不能包含块级元素，特别是P不能放div 
+        2.还有一些标签:h1 h2 h3 ---- h6 dt等文字类块级标签，里面不能放其他块级元素   
+        */
+    </style>
+</head>
+
+<body>
+
+
+    <div>我是块级元素</div>
+    <div>我是块级元素</div>
+    <div>
+        <strong>文字</strong>
+        <h1>标题</h1>
+    </div>
+</body>

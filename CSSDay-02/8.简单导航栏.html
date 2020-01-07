@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>简单导航栏</title>
+
+    <style>
+        /*
+           1. 变化样式 有大小 一行显示 我们想到了行内块元素
+           2. 鼠标经过变化底色和文字颜色
+        */
+        
+        a {
+            display: inline-block;
+            width: 100px;
+            height: 30px;
+            background-color: orange;
+            text-align: center;
+            color: white;
+            text-decoration: none;
+            /*行高等于盒子高度，可以让单行文本垂直居中 行高=上距离+内容高度+下距离
+             行高大于高度，文字会偏下 行高小于高度文字会偏上
+             上边距 + 文字 + 下边距 ==  行高
+            */
+            line-height: 30px;
+        }
+        
+        a:hover {
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+
+    <a href="#">新闻</a>
+    <a href="#">体育</a>
+    <a href="#">汽车</a>
+    <a href="#">好用</a>
+
+</body>
