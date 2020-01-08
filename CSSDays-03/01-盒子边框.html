@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>盒子边框</title>
+
+    <style>
+        .box1 {
+            border-color: pink;
+            /* 单独指定某一个方向的边框 */
+            border-top: 1px solid pink;
+            border-left: 1px solid pink;
+            /* 全边框 */
+            /* border-width: 1px; */
+            /* border-style: dashed; */
+            width: 200px;
+            height: 200px;
+        }
+        
+        .box2 {
+            border-color: pink;
+            border-width: 1px;
+            border-style: solid;
+            width: 200px;
+            height: 200px;
+        }
+        
+        .box3 {
+            border-color: pink;
+            border: none;
+            border-bottom: 1px dashed red;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="box1"></div>
+    <div class="box2"></div>
+    <div class="box3"></div>
+
+</body>
