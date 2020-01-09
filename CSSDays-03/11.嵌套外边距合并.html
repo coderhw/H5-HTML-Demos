@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        .father {
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            /* 第一种方法:给父盒子设置外边框 */
+            /* border: 1px solid transparent; */
+            /* 可以给父盒子指定一个 上Padding值 */
+            /* padding-top: 1px; */
+            /* 第三种方法:给父盒子添加overflow: hidden; */
+            overflow: hidden;
+            /* 还有其它方法:比如浮动，固定，绝对定位的盒子不会有问题 */
+        }
+        
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            margin-top: 50px;
+        }
+        /* 盒子模型布局稳定性:什么情况下用内边距，什么情况下用外边距
+            大部分情况下都是可以混用的，就是说内边距可以，外边距也可以
+            看哪个方便
+
+            根据稳定性来说:width > padding > margin
+
+            原因:
+            margin:会有外边距合并以及ie6下面margin加倍的bug,所以最后使用
+            padding:会影响盒子大小，需要进行加减计算
+            width：没有问题，经常使用宽度/高度 剩余法来做
+         */
+    </style>
+</head>
+
+<body>
+
+    <div class="father">
+        <div class="son"></div>
+    </div>
+</body>

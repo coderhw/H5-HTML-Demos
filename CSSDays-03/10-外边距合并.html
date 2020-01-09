@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        /* 这种情况，并不是上下两个外边距相加，而是等于其中某个较大值
+            这种现象称为外边距塌陷
+            解决方案:只给一个盒子添加margin值
+         */
+        
+        .top {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            margin-bottom: 50px;
+        }
+        
+        .bottom {
+            background-color: pink;
+            width: 200px;
+            height: 200px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+
+
+
+
+<body>
+
+    <div class="top"></div>
+
+    <div class="bottom"></div>
+
+</body>

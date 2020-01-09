@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        div {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+        }
+        /* 1.插入图片我么用的最多，比如产品展示类，移动位置只能靠盒子模型 */
+        /* 2.背景图片我们一般用于小图标背景或者超大背景图片，只能通过background-position */
+        /* 利用img的左边距来移动 */
+        
+        .pic img {
+            margin-left: 30px;
+            margin-top: 30px;
+            border-radius: 5px;
+        }
+        
+        .bg {
+            background: url(./Images/3.jpg) no-repeat;
+            padding: 30px;
+            /* background-position: 30px 30px; */
+        }
+    </style>
+</head>
+
+
+
+<body>
+    <div class="pic">
+        <img src="./Images/3.jpg" alt="">
+    </div>
+
+    <div class="bg">
+    </div>
+
+</body>
