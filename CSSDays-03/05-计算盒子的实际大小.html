@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<head>
+    <title>计算盒子的实际大小</title>
+    <style>
+        .nav {
+            /* 当盒子大小被内边距改变后，解决办法: 需要改变内容宽度减去多出来的内边距 */
+            width: 180px;
+            height: 200px;
+            background-color: pink;
+            padding: 0 20px;
+        }
+        /* 不指定宽高，设定内边距不撑开盒子 */
+        
+        p {
+            /* 如果盒子没有宽度，则padding不会撑开宽度*/
+            height: 30px;
+            background-color: purple;
+            padding-left: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="nav">
+        <P>123</P>
+    </div>
+
+
+</body>
