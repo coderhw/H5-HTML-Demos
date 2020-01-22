@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        /* 取消列表样式  */
+        
+        li {
+            list-style: none;
+        }
+        
+        .box {
+            width: 298px;
+            height: 198px;
+            border: 1px solid #cccccc;
+            margin: 100px auto;
+            padding: 15px;
+            /* background: url(./Images/line.jpg); */
+            background: url(./Images/line.jpg);
+        }
+        
+        .box h2 {
+            font-size: 16px;
+            padding: 5px 0;
+            border-bottom: 1px solid #cccccc;
+        }
+        
+        .box ul li {
+            height: 30px;
+            line-height: 30px;
+            border-bottom: 1px dashed #cccccc;
+            background: url(./Images/arr.jpg) no-repeat 5px center;
+            /* 因为这个li没有宽度，所以padding不会撑开盒子 */
+            padding-left: 20px;
+            /* background-position: 5px center; */
+        }
+        
+        .box ul li a {
+            color: #333333;
+            text-decoration: none;
+            font-size: 12px;
+        }
+        
+        .box ul li a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="father">
+        <div class="box">
+            <h2>最新文章/New Articles</h2>
+            <!-- 列表盒子 -->
+            <ul>
+                <li><a href="#">北京招聘网页设计，平面设计，PHP</a></li>
+                <li><a href="#">体验JavaScript的魅力</a></li>
+                <li><a href="#">jquery世界来临</a></li>
+                <li><a href="#">网页设计师的梦想</a></li>
+                <li><a href="#">jquery中的链式编程是什么</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
