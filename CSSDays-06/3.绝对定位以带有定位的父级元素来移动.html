@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<meta charset="UTF-8">
+
+<head>
+    <style>
+        .grandfather {
+            width: 500px;
+            height: 500px;
+            background-color: skyblue;
+            position: relative;
+        }
+        
+        .father {
+            width: 350px;
+            height: 350px;
+            background-color: pink;
+            margin: 100px;
+            /* 标准流的盒子总是以父级为准 */
+            /* 绝对定位:如果父级没有定位，则已文档，也就是浏览器为准 */
+            /* 如果父级有定位，绝对定位子盒子以父级移动位置 */
+            position: relative;
+        }
+        
+        .son {
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            margin-left: 100px;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- <div class="father">
+        <div class="son"></div>
+    </div> -->
+
+    <div class="grandfather">
+        <div class="father">
+            <div class="son"></div>
+        </div>
+    </div>
+
+</body>
