@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div :nth-child(1) {
+            background-color: pink;
+        }
+        /* 既是span标签，又是div的第一个孩子，因此这种选择器找不到 */
+        /* div span:nth-child(1) {
+            background-color: skyblue;
+        } */
+        /* 正确写法 */
+        
+        div span:nth-child(2) {
+            background-color: skyblue;
+        }
+        /* 选择满足span的第一个孩子 */
+        
+        div span:first-of-type {
+            background-color: slateblue;
+        }
+        /* 选择满足span的第二个孩子 */
+        
+        div span:nth-of-type(2) {
+            background-color: springgreen;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div>
+        <p>Hello world</p>
+        <span>我是span</span>
+        <span>我是span</span>
+        <span>我是span</span>
+    </div>
+</body>
+
+</html>

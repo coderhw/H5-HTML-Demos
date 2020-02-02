@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <style>
+        div {
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            /* 这种只能移动一个方向，另一个方向就没用 */
+            transform: translateX(200px);
+            /* transform: translateY(300px); */
+            /* 第二种 */
+            /* transform: translate(100px, 200px); */
+        }
+        
+        p {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background-color: purple;
+            /* 第一种实现方式 */
+            /* margin-top: -100px;
+            margin-left: -100px; */
+            /* 第二种实现方式 */
+            transform: translate(-50%, -50%);
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <p></p>
+    </div>
+</body>
+
+
+</html>
