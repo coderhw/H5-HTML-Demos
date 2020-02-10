@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <ul>
+            <li v-for='item in list'>{{item}}</li>
+        </ul>
+        <div>{{info.name}}</div>
+        <div>{{info.age}}</div>
+        <div>{{info.gender}}</div>
+
+    </div>
+
+    <!-- 作用:格式化数据 -->
+    <script type="text/javascript">
+        // Vue数组操作
+        // 1、变异方法：会影响数组的原始数据的变化。
+        // 2、替换数组：不会影响原始的数组数据，而是形成一个新的数组。
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                list: ['apple', 'orange', 'banana'],
+                info: {
+                    name: 'lisi',
+                    age: 12
+                }
+            },
+        });
+        //这种方法修改的数据不是响应式
+        // vm.list[1] = 'lemon';
+        // vm.info.gender = 'male';
+
+        //这种方法修改的数据是响应式
+        // Vue.set(vm.list, 2, 'lemon');
+
+        //这种方法修改的数据也是响应式
+        vm.$set(vm.list, 1, 'lemon');
+        vm.$set(vm.info, 'gender', 'female');
+    </script>
+</body>
+
+</html>

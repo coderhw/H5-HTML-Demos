@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+
+    <style>
+        .active {
+            border: 1px solid red;
+            width: 100px;
+            height: 100px;
+        }
+        
+        .active2 {
+            border: 1px solid red;
+            width: 100px;
+            height: 200px;
+        }
+        
+        .error {
+            background-color: orange;
+        }
+        
+        .test {
+            color: blue
+        }
+        
+        .base {
+            font-size: 28px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div v-bind:class='[activeClass,errorClass,{test:isTest}]'>测试样式1</div>
+        <div v-bind:class='arrClasses'>测试样式2</div>
+        <div v-bind:class='objClasses'>测试样式3</div>
+
+        <div class="base" v-bind:class='objClasses'></div>
+
+
+        <button v-on:click='handle1'>切换样式1</button>
+        <button v-on:click='handle2'>切换样式2</button>
+        <button v-on:click='handle3'>切换样式3</button>
+
+    </div>
+
+    <!-- 样式绑定相关语法细节:
+        1.对象绑定和数组绑定结合使用。
+        2.class绑定的值可以简化操作
+        3.默认的class如何处理?  默认的class会保留 -->
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                activeClass: 'active',
+                activeClass2: 'active2',
+                errorClass: 'error',
+                isTest: 'true',
+                arrClasses: ['active', 'error'],
+                objClasses: {
+                    active: true,
+                    error: true
+                }
+            },
+            methods: {
+                handle1: function() {
+                    this.activeClass = this.activeClass2;
+                    this.isTest = false;
+                },
+                handle2: function() {
+                    this.arrClasses = [];
+                },
+                handle3: function() {
+                    this.objClasses.active = false;
+                }
+            },
+        });
+    </script>
+</body>
+
+</html>

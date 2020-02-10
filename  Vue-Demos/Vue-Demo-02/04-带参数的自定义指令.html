@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <input type="text" v-color='msg'>
+    </div>
+
+
+    <script>
+        // 自定义指令-带参数
+        // Vue.directive('color', {
+        //     // 此处binding是形参
+        //     bind: function(el, binding) {
+        //         // 根据指令的参数设置背景色
+        //         // console.log(binding.value.color)
+        //         el.style.backgroundColor = binding.value.color;
+        //     }
+        // });
+
+        // 此处用inserted也可以
+        Vue.directive('color', {
+            // 此处binding是形参 binding包含有一系列的属性，这里我们用到的是value
+            inserted: function(el, binding) {
+                // 根据指令的参数设置背景色
+                // console.log(binding.value.color)
+                el.style.backgroundColor = binding.value.color;
+            }
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: {
+                    color: 'red'
+                }
+            },
+            methods: {
+                handle: function() {
+
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>

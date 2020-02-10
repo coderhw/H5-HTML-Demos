@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="../js/vue.js"></script>
+
+</head>
+
+<body>
+    <div id="app">
+        <form action="">
+            <div>
+                用户名:
+                <input type="text" v-model='uname' v-on:keyup.delete='clearContent'>
+            </div>
+            <div>
+                密码:
+                <input type="text" v-model='pwd' v-on:keyup.enter='handleSubmit'>
+            </div>
+            <div>
+                <input type="button" v-on:click='handleSubmit' value="提交">
+            </div>
+        </form>
+
+    </div>
+
+    <!-- 事件绑定-参数传递
+    1.如果事件直接绑定函数名称，那么默认会传递事件对象作为事件函数的第一个参数
+    2.如果事件绑定函数调用，那么事件对象必须作为最后一个参数显示传递，并且事件对象的名称必须是$event -->
+
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                num: 0,
+                uname: '',
+                pwd: ''
+            },
+            methods: {
+
+                handle0: function() {
+                    this.num++;
+                },
+                handle1: function(event) {
+                    console.log(event.target.innerHTML);
+                    //阻止冒泡 原始js做法
+                    //event.stopPropagation();
+
+                },
+                handle2: function(event) {
+                    //阻止默认行为 原始js做法
+                    // event.preventDefault();
+
+                },
+                handleSubmit: function() {
+                    console.log(this.uname, this.pwd);
+
+                },
+                clearContent: function() {
+                    //按住delete清空用户名
+                    this.uname = '';
+                }
+
+            },
+        });
+    </script>
+</body>
+
+</html>

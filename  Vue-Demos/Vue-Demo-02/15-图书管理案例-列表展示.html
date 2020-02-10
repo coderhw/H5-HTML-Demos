@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>图书管理系统</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+    <script src="../js/time.js"></script>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        
+        .grid {
+            width: 500px;
+            margin: 100px auto;
+            text-align: center;
+            /* margin-top: 100px; */
+        }
+        
+        .grid table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        .grid th,
+        td {
+            padding: 10;
+            border: 1px dashed orange;
+            height: 35px;
+            line-height: 35px;
+        }
+        
+        .grid th {
+            background-color: orange;
+        }
+        /* .book div {
+            float: left;
+        } */
+        
+        .grid .book {
+            padding-bottom: 10px;
+            padding-top: 5px;
+            background-color: orange;
+        }
+        
+        .book button {
+            width: 44px;
+            height: 22px;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        
+        .total {
+            height: 30px;
+            line-height: 30px;
+            background-color: orange;
+            border-top: 1px solid orange;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="app">
+        <div class="grid">
+            <div>
+                <h1>图书管理系统</h1>
+                <div class="book">
+                    <div>
+                        <label for="id">编号</label>
+                        <input type="text" id="id" v-model='id' :disabled="flag" v-focus>
+                        <label for="id">名称</label>
+                        <input type="text" id="name" v-model='name'>
+                        <button @click='handle' :disabled="submitFlag">提交</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- /图书总数 -->
+            <div class="total">
+                <span>图书总数:</span>
+                <span>{{total}}</span>
+            </div>
+            <table>
+                <!-- 表头 -->
+                <thead>
+                    <tr>
+                        <th>编号</th>
+                        <th>名称</th>
+                        <th>时间</th>
+                        <th>操作</th>
+                    </tr>
+                </thead>
+                <!-- 表体 -->
+                <tbody>
+                    <tr :key='item.id' v-for='item in books'>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.date | format('yyyy-MM-dd hh:mm:ss')}}</td>
+                        <td>
+                            <a href="" @click.prevent='editBook(item.id)'>修改</a>
+                            <span>|</span>
+                            <a href="" @click.prevent='deleteBook(item.id)'>删除</a>
+                        </td>
+                    </tr>
+                </tbody>
+
+            </table>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+        //过滤器
+        Vue.filter('format', function(value, arg) {
+            return dateFormat(value, arg);
+        });
+
+        // 自定义指令
+        Vue.directive('focus', {
+            inserted: function(el) {
+                //获取元素焦点
+                el.focus();
+            }
+        });
+
+        //VM instance
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                flag: false,
+                id: '',
+                name: '',
+                submitFlag: false,
+                books: [{
+                    id: 1,
+                    name: '三国演义',
+                    date: 2525609975000
+                }, {
+                    id: 2,
+                    name: '水浒传',
+                    date: 2525609975000
+                }, {
+                    id: 3,
+                    name: '红楼梦',
+                    date: 2525609975000
+                }, {
+                    id: 4,
+                    name: '西游记',
+                    date: 2525609975000
+                }]
+            },
+
+            //computed:计算属性 不能写到methods里面 total不需要添加到data中
+            computed: {
+                total: function() {
+                    return this.books.length;
+                }
+            },
+
+            // 监听 firstName 和  lastName
+            watch: {
+                name: function(val) {
+                    this.books.some((item) => {
+                        return this.submitFlag = (item.name == val);
+                    });
+                }
+            },
+            methods: {
+                handle: function() {
+                    if (this.flag) {
+                        //编辑图书 根据当前的id去遍历
+                        this.books.some((item) => {
+                            if (item.id == this.id) {
+                                item.name = this.name;
+                                //终止循环
+                                return true;
+                            }
+                        });
+                    } else {
+                        //添加图书
+                        var book = {};
+                        book.id = this.id;
+                        book.name = this.name;
+                        book.date = '';
+                        this.books.push(book);
+
+                        // //清空表单
+                        this.id = '';
+                        this.name = '';
+                    }
+
+                    this.flag = false;
+
+                },
+                editBook: function(id) {
+                    console.log(id);
+                    //根据id查询数据  利用filter过滤 返回的是一个新的数组
+                    var books = this.books.filter(function(item) {
+                        return item.id == id;
+                    });
+                    this.id = books[0].id;
+                    this.name = books[0].name;
+                    this.flag = true;
+
+                },
+                deleteBook: function(id) {
+                    console.log(id);
+                    //根据id查询数据  利用filter过滤 返回的是一个新的数组
+                    var index = this.books.findIndex(function(item) {
+                        return item.id == id;
+                    });
+                    if (index != -1) {
+                        this.books.splice(index, 1);
+                    }
+                },
+            },
+        });
+    </script>
+</body>
+
+</html>

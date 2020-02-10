@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div>
+            用户名:
+            <input type="text" v-model.lazy='uname'>
+            <span>{{tip}}</span>
+        </div>
+
+    </div>
+
+
+    <script type="text/javascript">
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                uname: '',
+                tip: ''
+            },
+            // 方法不存在缓存
+            methods: {
+                checkName: function(uname) {
+                    //接口调用 暂时使用定时器模拟定时器调用
+                    var that = this;
+                    window.setTimeout(function() {
+                        if (uname == 'admin') {
+                            //注意此处不能用this, 因为this指向函数调用者widnow
+                            that.tip = '用户名存在, 不可以使用';
+                        } else {
+                            that.tip = '用户名可以使用';
+                        }
+                    }, 2000);
+
+                }
+            },
+
+            // 监听 firstName 和  lastName
+            watch: {
+                uname: function(val) {
+                    //调用后台接口验证用户名合法性
+                    this.checkName(val);
+                    this.tip = '正在验证...';
+                }
+            },
+
+        });
+    </script>
+</body>
+
+</html>
