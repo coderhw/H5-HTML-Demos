@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+
+    <div class="user" id="time">
+        2020-02-05
+    </div>
+
+
+    <ul id="nav">
+        <li>好好学习，天天向上1</li>
+        <li>好好学习，天天向上2</li>
+        <li>好好学习，天天向上3</li>
+        <li>好好学习，天天向上4</li>
+        <li>好好学习，天天向上5</li>
+    </ul>
+
+    <ul id="nav2">
+        <li>好好学习，天天向上6</li>
+        <li>好好学习，天天向上7</li>
+        <li>好好学习，天天向上8</li>
+        <li>好好学习，天天向上9</li>
+        <li>好好学习，天天向上10</li>
+    </ul>
+
+    <script>
+        var timer = document.getElementById("time");
+        console.log(timer);
+        console.log(typeof(timer));
+        console.dir(timer);
+
+        console.log("---------");
+
+        var liArr = document.getElementsByTagName("li")
+        console.log(liArr);
+        console.log(liArr[0]);
+
+        for (let index = 0; index < liArr.length; index++) {
+            const element = liArr[index];
+            console.log(element);
+
+        }
+
+        console.log("---------");
+        var nav = document.getElementById("nav").getElementsByTagName("li");
+
+        for (let index = 0; index < nav.length; index++) {
+            const element = nav[index];
+            console.log(element);
+
+        }
+
+
+        window.setTimeout(function() {
+            console.log('时间到了😁');
+
+        }, 2000);
+
+        window.setTimeout(callback, 2000);
+
+        function callback() {
+            console.log('爆炸了😁');
+
+        }
+    </script>
+</body>
+
+
+</html>

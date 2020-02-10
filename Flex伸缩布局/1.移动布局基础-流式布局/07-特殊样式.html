@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        a {
+            /* 点击高亮我们需要清除 */
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        div {
+            /* CSS3盒子模型 */
+            box-sizing: border-box;
+        }
+        
+        input {
+            /* 移动端浏览器默认的外观在iOS上加载这个属性才可以自定义样式 */
+            -webkit-appearance: none;
+        }
+        
+        img a {
+            /* 禁用长按页面时候弹出的菜单 */
+            -webkit-touch-callout: none;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="#">黑马</a>
+    <input type="button" value="按钮">
+</body>
+
+</html>
