@@ -13,9 +13,9 @@
     <div id="app">
 
         <div>{{pmsg}}</div>
-        <!-- 父组件通过属性方式传值给子组件 -->
+        <!-- 父组件通过属性方式传值给子组件传值 -->
         <menu-item title="来自父组件的值"></menu-item>
-        <!-- 通过v-bind动态绑定属性 -->
+        <!-- 通过v-bind动态绑定属性的方式给子组件传值 -->
         <menu-item :title='ptitle' content='Hello'></menu-item>
 
     </div>
@@ -33,7 +33,7 @@
                     msg: '子组件本身的数据'
                 }
             },
-            template: '<div>{{msg +"----"+title + "-----" + content}}</div>'
+            template: `<div>{{msg +"----"+title + "-----" + content}}</div>`
         });
 
         //父组件
