@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+
+        <div>{{pmsg}}</div>
+        <!-- 父组件通过属性方式传值给子组件 -->
+        <menu-item title="来自父组件的值"></menu-item>
+        <!-- 通过v-bind动态绑定属性 -->
+        <menu-item :title='ptitle' content='Hello'></menu-item>
+
+    </div>
+
+
+    <script type="text/javascript">
+        //定义的子组件
+        //父组件向子组件传值
+        Vue.component('menu-item', {
+
+            //子组件通过props来接收父组件传过来的值
+            props: ['title', 'content'],
+            data: function() {
+                return {
+                    msg: '子组件本身的数据'
+                }
+            },
+            template: '<div>{{msg +"----"+title + "-----" + content}}</div>'
+        });
+
+        //父组件
+        var vm = new Vue({
+
+            el: '#app',
+            data: {
+                pmsg: '父组件的内容',
+                ptitle: '动态绑定属性'
+            }
+        });
+    </script>
+</body>
+
+</html>

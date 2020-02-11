@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>组件的基本使用</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+
+    </div>
+
+    <!-- 作用:格式化数据 -->
+    <script type="text/javascript">
+        // 组件注册
+        Vue.component('button-counter', {
+            data: function() {
+                return {
+                    count: 0
+                }
+            },
+            //这里click得用双引号 直接操作count++
+            template: '<button @click="handle">点击了{{count}}</button>',
+            methods: {
+                handle: function() {
+                    this.count += 2;
+                }
+            },
+
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+        });
+    </script>
+</body>
+
+</html>

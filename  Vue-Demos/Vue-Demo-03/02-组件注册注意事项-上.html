@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <script type="text/javascript" src="../js/vue.js"></script>
+
+</head>
+
+<body>
+
+    <div id="app">
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+        <button-counter></button-counter>
+
+    </div>
+
+    <!-- 作用:格式化数据 -->
+    <script type="text/javascript">
+        // 组件注册
+        // Vue.component('button-counter', {
+        //     // 注意点
+        //     //1.这里的data必须是函数，否则会报错 使用函数是为了形成一个闭包的环境
+        //     //2.组件模板内容必须是单个根元素，否则会报错
+        //     data: function() {
+        //         return {
+        //             count: 0
+        //         }
+        //     },
+        //     //这里click得用双引号 直接操作count++
+        //     template: '<div><button @click="handle">点击了{{count}}</button><button>测试</button></div>',
+        //     methods: {
+        //         handle: function() {
+        //             this.count += 2;
+        //         }
+        //     },
+
+        // });
+        //--------------
+        Vue.component('button-counter', {
+
+            data: function() {
+                return {
+                    count: 0
+                }
+            },
+
+            template: `
+                <div>
+                    <button @click="handle">点击了{{count}}
+                    </button><button>测试</button>
+                </div>
+            `,
+            methods: {
+                handle: function() {
+                    this.count += 2;
+                }
+            },
+
+        });
+
+        var vm = new Vue({
+            el: '#app',
+            data: {
+
+            },
+        });
+    </script>
+</body>
+
+</html>
