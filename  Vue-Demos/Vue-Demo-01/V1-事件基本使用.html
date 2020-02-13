@@ -13,6 +13,7 @@
         <!-- 插值表达式 -->
         <div>{{num}}</div>
         <div>
+            <div v-if="seen">你看到我了</div>
             <button v-on:click='num++'>点击1</button>
             <button @click='num++'>点击2</button>
             <button @click='add()'>点击3</button>
@@ -26,6 +27,7 @@
         var vm = new Vue({
             el: '#app ',
             data: {
+                seen: false,
                 num: 2
             },
             methods: {
